@@ -23,4 +23,4 @@ jobs:
         run: |
           # Sincronizamos TU carpeta específica con la carpeta de destino en el Bucket
           # Esto tomará lo que hay en 'Products_Images' y lo pondrá en 'catalog/products' de S3
-          aws s3 sync ./Products_Images s3://colabb-mobility-media/catalog/products --delete
+          aws s3 sync ./Products_Images s3://colabb-mobility-media/Products_Images --delete
