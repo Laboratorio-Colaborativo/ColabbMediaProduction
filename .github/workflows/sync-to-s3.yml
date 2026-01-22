@@ -1,4 +1,4 @@
-name: Sync Media to AWS S3
+name: Sync Universal Media to AWS S3
 
 on:
   push:
@@ -17,10 +17,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2 # Tu región en Ohio
+          aws-region: us-east-2
 
-      - name: Sync to S3
+      - name: Sync Media Folders
         run: |
-          # Sincronizamos TU carpeta específica con la carpeta de destino en el Bucket
-          # Esto tomará lo que hay en 'Products_Images' y lo pondrá en 'catalog/products' de S3
-          aws s3 sync ./Products_Images s3://colabb-mobility-media/Products_Images --delete
+          # Sincronizamos cada carpeta a su lugar correspondiente en el prefijo /media/
+          aws s3 sync ./images s3://colabb-mobility-media/media/images --delete
+          aws s3 sync ./docs s3://colabb-mobility-media/media/docs --delete
+          aws s3 sync ./videos s3://colabb-mobility-media/media/videos --delete
