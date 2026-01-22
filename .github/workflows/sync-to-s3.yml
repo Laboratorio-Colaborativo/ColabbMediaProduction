@@ -22,6 +22,6 @@ jobs:
       - name: Sync Media Folders
         run: |
           # Sincronizamos cada carpeta a su lugar correspondiente en el prefijo /media/
-          aws s3 sync ./images s3://colabb-mobility-media/media/images --delete
-          aws s3 sync ./docs s3://colabb-mobility-media/media/docs --delete
-          aws s3 sync ./videos s3://colabb-mobility-media/media/videos --delete
+          aws s3 sync ./images s3://colabb-mobility-media/images --delete
+          aws s3 sync ./docs s3://colabb-mobility-media/docs --delete
+          aws s3 sync ./videos s3://colabb-mobility-media/videos --delete
